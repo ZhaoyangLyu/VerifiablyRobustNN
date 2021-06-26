@@ -1,0 +1,92 @@
+{
+    "model_def": "model_defs_gowal.py",
+    "dataset": "mnist",
+    "path_prefix": "",
+    "models_path": "./exp_results/mnist_dm-large/ParamRamp_0.01~0_ibp_kappa_1-0.5",
+    "training_params": {
+        "method": "robust_natural",
+        "epochs": 200,
+        "lr": 0.0005,
+        "lr_decay_factor": 0.1,
+        "lr_decay_step": null,
+        "lr_decay_milestones": [
+            130,
+            190
+        ],
+        "weight_decay": 0.0,
+        "optimizer": "adam",
+        "schedule_start": 10,
+        "starting_epsilon": 0.0,
+        "epsilon": 0.4,
+        "schedule_length": 51,
+        "norm": "inf",
+        "verbose": false,
+        "device": 0,
+        "multi_gpu": false,
+        "device_ids": [],
+        "loader_params": {
+            "batch_size": 256,
+            "test_batch_size": 256,
+            "shuffle_train": true
+        },
+        "method_params": {
+            "bounded_input": true,
+            "bound_type": "interval",
+            "batch_multiplier": 1,
+            "final-kappa": 0.5,
+            "bound_opts": {
+                "activation": "param_leaky_relu_step",
+                "neg_slope": 0.01
+            }
+        },
+        "step_activation_params": {
+            "use_mean_act_as_param": true,
+            "record_mean_act_epoch": 10,
+            "include_minus_values": true
+        },
+        "after_crown_or_lbp_settings": {
+            "multi_gpu": false,
+            "device_ids": "same",
+            "batch_size": 256,
+            "batch_multiplier": 1
+        },
+        "slope_schedule": {
+            "slope_schedule": true,
+            "schedule_type": "smoothed",
+            "start_slope": 0.01,
+            "end_slope": 0,
+            "schedule_start": 70,
+            "schedule_length": 71
+        }
+    },
+    "eval_params": {
+        "method": "robust",
+        "epsilon": [
+            0.2,
+            0.3,
+            0.4
+        ],
+        "norm": "inf",
+        "verbose": false,
+        "loader_params": {
+            "batch_size": 256,
+            "test_batch_size": 256,
+            "shuffle_train": true
+        },
+        "method_params": {
+            "bounded_input": true,
+            "bound_type": "interval"
+        }
+    },
+    "models": [
+        {
+            "model_id": "IBP_large",
+            "model_class": "IBP_large",
+            "model_params": {
+                "in_ch": 1,
+                "in_dim": 28,
+                "linear_size": 512
+            }
+        }
+    ]
+}
