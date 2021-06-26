@@ -7,6 +7,10 @@ Zhaoyang Lyu, Minghao Guo, Tong Wu, Guodong Xu, Kehuan Zhang, Dahua Lin, ["Towar
 
 The appendix of our paper is in the file `_appendix.pdf`.
 
+Updates
+----------------------------------------------------------------
+- Jun 26, 2021: Initial release. Release the codes for experiments on MNIST dataset.
+
 
 Setup
 ----------------------------------------------------------------
